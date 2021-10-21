@@ -1,0 +1,17 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    color: #fff;
+}
+#new_window{
+    text-decoration: none;
+    border: none;
+    width: 100px;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    outline: none;
+    color: black;
+    background-color: rgb(255, 149, 255);
+}

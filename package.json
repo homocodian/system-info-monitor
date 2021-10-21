@@ -6,7 +6,9 @@
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
-    "make": "electron-forge make"
+    "make": "electron-forge make",
+    "dev": "electron .",
+    "watch": "nodemon --exec electron ."
   },
   "author": "Ashish Singh",
   "license": "MIT",
@@ -19,7 +21,8 @@
     "electron": "^15.3.0"
   },
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.0"
+    "electron-squirrel-startup": "^1.0.0",
+    "electron-window-state": "^5.0.3"
   },
   "config": {
     "forge": {
