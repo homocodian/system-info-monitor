@@ -1,17 +1,96 @@
 *{
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 body{
+    background-color: #121212;
+    color: #fff;
+    -webkit-user-select: none;
+    user-select: none;
+}
+nav{
+    background-color: #263238;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: context-menu;
+    -webkit-app-region: drag;
+}
+
+#left #app_name{
+    margin-left: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+#right{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    -webkit-app-region: no-drag;
+}
+
+#right button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 25px;
+    outline: none;
+    border: none;
+}
+
+.minimize_button{
+    background:url("../../assets/icons/minimize.svg") no-repeat center;
+}
+
+.maximize_button{
+    background: url("../../assets/icons/maximize.svg") no-repeat center;
+}
+
+.restore_button{
+    background: url("../../assets/icons/restore.svg") no-repeat center;
+}
+
+.close_button{
+    background: url("../../assets/icons/close.svg") no-repeat center;
+}
+
+#minimize:hover,#maximizeOrRestore:hover{
+    background-color: #383f44;
+}
+
+#close:hover{
+    background-color: red;
+}
+
+#main{
+    padding: 10px;
+}
+
+#cpu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.heading{
+    text-align: center;
     color: #fff;
 }
-#new_window{
-    text-decoration: none;
-    border: none;
-    width: 100px;
-    padding: 10px;
-    border-radius: 5px;
-    margin-top: 10px;
-    outline: none;
-    color: black;
-    background-color: rgb(255, 149, 255);
+
+.background{
+    width: 300px;
+    height: 24px;
+    background-color: #f1f1f1;
+    border-radius: 4px;
+}
+
+#cpuUsageBar{
+    width: 50%;
+    height: 24px;
+    border-radius: 4px;
+    background-color: #2196F3;
 }

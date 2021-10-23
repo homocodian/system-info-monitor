@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" viewBox="0 0 11 11">
+  <g id="restore" transform="translate(-190 -45)">
+    <path id="Rectangle_2" data-name="Rectangle 2" d="M1,1V8H8V1H1M0,0H9V9H0Z" transform="translate(190 47)" fill="#fff"/>
+    <g id="Group_2" data-name="Group 2">
+      <path id="Line_4" data-name="Line 4" d="M8,.5H0v-1H8Z" transform="translate(192.5 45.5)" fill="#fff"/>
+      <path id="Line_5" data-name="Line 5" d="M.5,8h-1V0h1Z" transform="translate(200.5 45)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

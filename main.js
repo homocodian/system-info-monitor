@@ -1,16 +1,9 @@
-const { app, BrowserWindow, Tray, nativeImage, Menu, ipcMain } = require("electron");
+const { app, BrowserWindow } = require("electron");
+const handleApp = require('./electron/handleApp');
+const getContextMenu = require('./electron/contexMenu');
 const windowStateKeeper = require("electron-window-state");
+const sendSystemInfo = require('./electron/systemInfo');
 const path = require("path");
-
-// getting actions from window
-ipcMain.on("quit-btn",(e, args)=>{
-    console.log(args);
-    if (args === true && process.platform !== "darwin") {
-        app.quit()
-    }
-})
-
-
 
 // create window and load local html file into it
 function createWindow() {
@@ -19,49 +12,42 @@ function createWindow() {
         defaultWidth: 800,
         defaultHeight: 500
     });
+
     // window
     const win = new BrowserWindow({
         x: mainWindowState.x,
         y: mainWindowState.y,
         width: mainWindowState.width,
         height: mainWindowState.height,
+        minWidth: 600,
+        minHeight: 400,
+        title: "System Info",
+        frame: false,
         backgroundColor:"#121212",
+        icon: "assets/app.png",
         show: false,
         webPreferences: {
             preload: path.join(__dirname, "/src/js/preload.js")
         }
     });
 
-    // menu
-    let menu = [{label:"File",submenu:[{role:"quit"}]},{label:"View",
-    submenu:[{label:"Copy"},{label:"Paste"}]},
-    {label:"Blog"},{label:"Open DevTools", click: async()=>{
-        win.webContents.openDevTools();
-    }}];
-    menu = Menu.buildFromTemplate(menu);
+    // handle lifecycle of  app
+    handleApp();
     
     // load file
     win.loadFile("src/index.html");
+
     win.once("ready-to-show", () => {
+        // send cpu usage
+        sendSystemInfo();
         // manange window state
         mainWindowState.manage(win);
-        // win.setMenu(menu)
         win.show();
         win.webContents.on("context-menu",()=>{
-            menu.popup();
-        })
-
-        const image = nativeImage.createFromPath("images/myapp.png");
-        const tray = new Tray(image);
-        tray.setToolTip("Click to open");
-        tray.on("click",()=>{
-            win.isVisible() ? win.hide() : win.show();
-        })
-        tray.on("balloon-closed",(e)=>{
-            console.log(e);
-            console.log("Tray closed");
-        })
-    })
+            let contextMenu = getContextMenu(win)
+            contextMenu.popup();
+        });
+    });
     
 }
 

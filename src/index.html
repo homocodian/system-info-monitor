@@ -1,19 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <title>Hello World!</title>
-    <link rel="stylesheet" href="./css/style.css">
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    <div>We are using Node.js <span id="node-version"></span>,
-      Chromium <span id="chrome-version"></span>,
-      and Electron <span id="electron-version"></span>
+
+<head>
+  <meta charset="UTF-8">
+  <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+  <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+  <title>Hello World!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+  <script defer src="./js/render.js"></script>
+</head>
+
+<body>
+  <!-- app controls -->
+  <nav>
+    <div id="left">
+      <span id="app_name">System Info</span>
     </div>
-    <button id="new_window">Quit</button>
-  </body>
+    <div id="right">
+      <button id="minimize" class="minimize_button" title="minimize"></button>
+      <button id="maximizeOrRestore" class="maximize_button" title="maximize"></button>
+      <button id="close" class="close_button" title="close"></button>
+    </div>
+  </nav>
+  <!-- main -->
+  <main id="main">
+    <div id="cpu">
+      <h1 class="headding">Cpu Usage</h1>
+      <h1 id="cpuUsage">0%</h1>
+      <div class="background">
+        <div id="cpuUsageBar"></div>
+      </div>
+    </div>
+  </main>
+</body>
+
 </html>
