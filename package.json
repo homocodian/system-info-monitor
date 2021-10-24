@@ -7,7 +7,8 @@
     "postinstall": "install-app-deps",
     "start": "npm install && electron .",
     "pack": "electron-builder --dir",
-    "dist": "electron-builder"
+    "dist": "electron-builder",
+    "dev": "electron ."
   },
   "build": {
     "productName": "System Info Moniter",

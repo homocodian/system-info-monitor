@@ -27,7 +27,7 @@ window.addEventListener("DOMContentLoaded", () => {
     ApplicationLifeCycle();
 
     // get cpu info 
-    getCpuInfo();
+    getCpuInfo(cpuUsagesBar);
 
     // get Memory info
     getMemoryInfo();
@@ -67,7 +67,7 @@ function ApplicationLifeCycle() {
     });
 }
 
-function getCpuInfo() {
+function getCpuInfo(cpuUsagesBar) {
     // get cpu info in every 2 sec
     setInterval(() => {
         getCpuUsage()
@@ -78,7 +78,7 @@ function getCpuInfo() {
         ipcRenderer.invoke("getCpuUsage").then(data => {
             const cpuLoad = data.currentLoad.toFixed(2);
             cpuUsage.innerText = cpuLoad + "%"
-            cpuUsagesBar.style.width = cpuLoad + "px";
+            cpuUsagesBar.style.width = cpuLoad + "%";
         })
     }
 
@@ -87,7 +87,6 @@ function getCpuInfo() {
     function invokeGetCpuInfo() {
         // get more cpu info
         ipcRenderer.invoke("getCpuInfo").then(data => {
-            console.log(data);
             manufacturer.innerText = data.manufacturer ? data.manufacturer : "No data!";
             brand.innerText = data.brand ? data.brand : "No data!";
             cores.innerText = data.cores ? data.cores : "No data!";
