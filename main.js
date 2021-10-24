@@ -1,9 +1,9 @@
 require('update-electron-app')();
 const { app, BrowserWindow } = require("electron");
-const handleApp = require('./electron/handleApp');
+const handleApp = require('./api/handleApp');
 const windowStateKeeper = require("electron-window-state");
-const {sendSystemInfo} = require('./electron/systemInfo');
-const makeTray = require('./electron/Tray');
+const {sendSystemInfo} = require('./api/systemInfo');
+const makeTray = require('./api/Tray');
 const path = require("path");
 
 // create window and load local html file into it
