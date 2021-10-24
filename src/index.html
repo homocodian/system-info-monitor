@@ -7,9 +7,6 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
   <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
   <title>Hello World!</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css">
   <script defer src="./js/render.js"></script>
 </head>
@@ -26,14 +23,64 @@
       <button id="close" class="close_button" title="close"></button>
     </div>
   </nav>
+
   <!-- main -->
   <main id="main">
+
+    <!-- cpu -->
     <div id="cpu">
       <h1 class="headding">Cpu Usage</h1>
       <h1 id="cpuUsage">0%</h1>
       <div class="background">
         <div id="cpuUsageBar"></div>
       </div>
+    </div>
+
+    <!-- more cpu info -->
+    <table>
+      <tr>
+        <th>manufacturer</th>
+        <th>Brand</th>
+        <th>Cores</th>
+        <th>Physical Cores</th>
+        <th>Vendor</th>
+        <th>Speed</th>
+        <th>SpeedMin</th>
+        <th>SpeedMax</th>
+        <th>Vartualization</th>
+      </tr>
+      <tr>
+        <td id="manufacturer">Fetching...</td>
+        <td id="brand">Fetching...</td>
+        <td id="cores">Fetching...</td>
+        <td id="physicalCores">Fetching...</td>
+        <td id="vendor">Fetching...</td>
+        <td id="speed">Fetching...</td>
+        <td id="speedMin">Fetching...</td>
+        <td id="speedMax">Fetching...</td>
+        <td id="virtualization">Fetching...</td>
+      </tr>
+    </table>
+
+    <!-- Memory info -->
+    <div id="memory">
+      <h1 class="heading">Memory Info</h1>
+      <table>
+        <tr>
+          <th>Total</th>
+          <th>Free</th>
+          <th>Used</th>
+          <th>Active</th>
+          <th>Available</th>
+        </tr>
+        <tr>
+          <td id="totalMem">Fetching...</td>
+          <td id="freeMem">Fetching...</td>
+          <td id="usedMem">Fetching...</td>
+          <td id="activeMem">Fetching...</td>
+          <td id="availableMem">Fetching...</td>
+        </tr>
+      </table>
     </div>
   </main>
 </body>

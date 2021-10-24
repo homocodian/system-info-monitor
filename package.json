@@ -1,55 +1,83 @@
 {
-  "name": "my-electron-app",
+  "name": "system_info_moniter",
   "version": "1.0.0",
-  "description": "Electron app",
+  "description": "CPU And Memory Load Moniter",
   "main": "main.js",
   "scripts": {
-    "start": "electron-forge start",
-    "package": "electron-forge package",
-    "make": "electron-forge make",
-    "dev": "electron .",
-    "watch": "nodemon --exec electron ."
+    "postinstall": "install-app-deps",
+    "start": "npm install && electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
-  "author": "Ashish Singh",
-  "license": "MIT",
-  "devDependencies": {
-    "@electron-forge/cli": "^6.0.0-beta.61",
-    "@electron-forge/maker-deb": "^6.0.0-beta.61",
-    "@electron-forge/maker-rpm": "^6.0.0-beta.61",
-    "@electron-forge/maker-squirrel": "^6.0.0-beta.61",
-    "@electron-forge/maker-zip": "^6.0.0-beta.61",
-    "electron": "^15.3.0"
-  },
-  "dependencies": {
-    "electron-squirrel-startup": "^1.0.0",
-    "electron-window-state": "^5.0.3",
-    "systeminformation": "^5.9.8"
-  },
-  "config": {
-    "forge": {
-      "packagerConfig": {},
-      "makers": [
+  "build": {
+    "productName": "System Info Moniter",
+    "appId": "com.Ashish-singh-dev.system_info",
+    "extraFiles": [
+      "app.ico"
+    ],
+    "removePackageScripts": true,
+    "nsis": {
+      "createDesktopShortcut": true,
+      "deleteAppDataOnUninstall": true
+    },
+    "mac": {
+      "category": "public.app-category.utilities",
+      "icon": "build/icon.icns",
+      "darkModeSupport": true
+    },
+    "dmg": {
+      "background": "build/background.png",
+      "backgroundColor": "#121212",
+      "icon": "build/icon.icns",
+      "contents": [
         {
-          "name": "@electron-forge/maker-squirrel",
-          "config": {
-            "name": "my_electron_app"
-          }
+          "x": 110,
+          "y": 150
         },
         {
-          "name": "@electron-forge/maker-zip",
-          "platforms": [
-            "darwin"
-          ]
-        },
-        {
-          "name": "@electron-forge/maker-deb",
-          "config": {}
-        },
-        {
-          "name": "@electron-forge/maker-rpm",
-          "config": {}
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
         }
       ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Utility"
+    },
+    "win": {
+      "target": "NSIS",
+      "icon": "build/icon.ico"
     }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ashish-singh-dev/system_info.git"
+  },
+  "keywords": [
+    "systeminfo",
+    "CPU",
+    "Memory",
+    "cpu usage",
+    "system information viewer"
+  ],
+  "author": "Ashish Singh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Ashish-singh-dev/system_info/issues"
+  },
+  "homepage": "https://github.com/Ashish-singh-dev/system_info#readme",
+  "devDependencies": {
+    "electron": "^15.3.0",
+    "electron-builder": "^22.13.1"
+  },
+  "dependencies": {
+    "electron-window-state": "^5.0.3",
+    "systeminformation": "^5.9.8",
+    "update-electron-app": "^2.0.1"
   }
 }

@@ -1,15 +1,24 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-body{
+
+@font-face {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 400;
+    src: url("../../assets/fonts/Poppins/Poppins-Regular.ttf");
+}
+
+body {
     background-color: #121212;
     color: #fff;
     -webkit-user-select: none;
     user-select: none;
+    font-family: 'Poppins',Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
 }
-nav{
+nav {
     background-color: #263238;
     color: #fff;
     display: flex;
@@ -17,13 +26,14 @@ nav{
     align-items: center;
     cursor: context-menu;
     -webkit-app-region: drag;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#left #app_name{
+#left #app_name {
     margin-left: 10px;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
 }
-#right{
+#right {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -31,7 +41,7 @@ nav{
     -webkit-app-region: no-drag;
 }
 
-#right button{
+#right button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,56 +51,81 @@ nav{
     border: none;
 }
 
-.minimize_button{
-    background:url("../../assets/icons/minimize.svg") no-repeat center;
+.minimize_button {
+    background: url("../../assets/icons/minimize.svg") no-repeat center;
 }
 
-.maximize_button{
+.maximize_button {
     background: url("../../assets/icons/maximize.svg") no-repeat center;
 }
 
-.restore_button{
+.restore_button {
     background: url("../../assets/icons/restore.svg") no-repeat center;
 }
 
-.close_button{
+.close_button {
     background: url("../../assets/icons/close.svg") no-repeat center;
 }
 
-#minimize:hover,#maximizeOrRestore:hover{
+#minimize:hover,
+#maximizeOrRestore:hover {
     background-color: #383f44;
 }
 
-#close:hover{
+#close:hover {
     background-color: red;
 }
 
-#main{
+#main {
     padding: 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
-#cpu{
+#cpu {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
 }
 
-.heading{
+.heading {
     text-align: center;
     color: #fff;
 }
 
-.background{
+.background {
     width: 300px;
     height: 24px;
     background-color: #f1f1f1;
     border-radius: 4px;
 }
 
-#cpuUsageBar{
+#cpuUsageBar {
     width: 50%;
     height: 24px;
     border-radius: 4px;
-    background-color: #2196F3;
+    background-color: #B39DDB;
+}
+
+#memory{
+    margin-top: 30px;
+}
+
+table {
+    margin-top: 30px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td,
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #B39DDB;
+    color: #121212;
 }
