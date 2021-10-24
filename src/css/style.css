@@ -11,12 +11,32 @@
     src: url("../../assets/fonts/Poppins/Poppins-Regular.ttf");
 }
 
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
 body {
     background-color: #121212;
     color: #fff;
     -webkit-user-select: none;
     user-select: none;
-    font-family: 'Poppins',Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Poppins", Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
 }
 nav {
     background-color: #263238;
@@ -26,7 +46,8 @@ nav {
     align-items: center;
     cursor: context-menu;
     -webkit-app-region: drag;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
 }
 
 #left #app_name {
@@ -105,10 +126,10 @@ nav {
     width: 2%;
     height: 24px;
     border-radius: 4px;
-    background-color: #B39DDB;
+    background-color: #b39ddb;
 }
 
-#memory{
+#memory {
     margin-top: 30px;
 }
 
@@ -126,6 +147,6 @@ th {
 }
 
 tr:nth-child(even) {
-    background-color: #B39DDB;
+    background-color: #b39ddb;
     color: #121212;
 }
